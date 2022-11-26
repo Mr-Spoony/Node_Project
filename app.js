@@ -1,11 +1,10 @@
-function sayHello(name){
-    console.log('Hello '+name);
-}
+const EventEmitter = require('events');
 
-sayHello('Alex');
+const Logger = require('./logger');
+const logger = new Logger();
 
-var sayHello = function() {
+logger.on('messageLogged', (arg) => {
+    console.log('Listener Called', arg)
+})
 
-}
-
-window.sayHello();
+logger.log('message');
